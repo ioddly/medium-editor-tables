@@ -264,13 +264,13 @@ Builder.prototype = {
         this._toolbar.appendChild(spanCol);
         var addColumnBefore = this._doc.createElement('button');
         addColumnBefore.title = 'Add column before';
-        addColumnBefore.innerHTML = '<i class="octicon octicon-left"></i>';
+        addColumnBefore.innerHTML = '<i class="octicon octicon-chevron-left"></i>';
         addColumnBefore.onclick = this.addColumn.bind(this, true);
         this._toolbar.appendChild(addColumnBefore);
 
         var addColumnAfter = this._doc.createElement('button');
         addColumnAfter.title = 'Add column after';
-        addColumnAfter.innerHTML = '<i class="octicon octicon-right"></i>';
+        addColumnAfter.innerHTML = '<i class="octicon octicon-chevron-right"></i>';
         addColumnAfter.onclick = this.addColumn.bind(this, false);
         this._toolbar.appendChild(addColumnAfter);
 
@@ -557,7 +557,7 @@ MediumEditorTable = MediumEditor.extensions.form.extend({
     aria: 'create table',
     action: 'table',
     contentDefault: 'TBL',
-    contentFA: '<i class="fa fa-table"></i>',
+    contentFA: '<i class="octicon octicon-database"></i>',
 
     handleClick: function (event) {
         event.preventDefault();
