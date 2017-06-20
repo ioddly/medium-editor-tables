@@ -452,9 +452,10 @@ Table.prototype = {
 
         var table = this._doc.getElementById('medium-editor-table'),
             tbody = this._doc.getElementById('medium-editor-table-tbody');
-        if (0 === $(table).find('#medium-editor-table-tbody').length) {
+        if (null === table.querySelector('#medium-editor-table-tbody')) {
             //Edge case, where tbody gets appended outside table tag
-            $(tbody).detach().appendTo(table);
+            tbody.parentNode.removeChild(tbody);
+            table.appendChild(tbody);
         }
         tbody.removeAttribute('id');
         table.removeAttribute('id');
