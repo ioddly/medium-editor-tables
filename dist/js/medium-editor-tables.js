@@ -10,7 +10,7 @@
   } else {
     root.MediumEditorTable = factory;
   }
-}(this, function () {
+}(this, function (MediumEditor) {
 
   'use strict';
 
@@ -243,19 +243,19 @@ Builder.prototype = {
         this._toolbar.appendChild(spanRow);
         var addRowBefore = this._doc.createElement('button');
         addRowBefore.title = 'Add row before';
-        addRowBefore.innerHTML = '<i class="fa fa-long-arrow-up"></i>';
+        addRowBefore.innerHTML = '<i class="octicon octicon-arrow-up"></i>';
         addRowBefore.onclick = this.addRow.bind(this, true);
         this._toolbar.appendChild(addRowBefore);
 
         var addRowAfter = this._doc.createElement('button');
         addRowAfter.title = 'Add row after';
-        addRowAfter.innerHTML = '<i class="fa fa-long-arrow-down"></i>';
+        addRowAfter.innerHTML = '<i class="octicon octicon-arrow-down"></i>';
         addRowAfter.onclick = this.addRow.bind(this, false);
         this._toolbar.appendChild(addRowAfter);
 
         var remRow = this._doc.createElement('button');
         remRow.title = 'Remove row';
-        remRow.innerHTML = '<i class="fa fa-close"></i>';
+        remRow.innerHTML = '<i class="octicon octicon-x"></i>';
         remRow.onclick = this.removeRow.bind(this);
         this._toolbar.appendChild(remRow);
 
@@ -264,25 +264,25 @@ Builder.prototype = {
         this._toolbar.appendChild(spanCol);
         var addColumnBefore = this._doc.createElement('button');
         addColumnBefore.title = 'Add column before';
-        addColumnBefore.innerHTML = '<i class="fa fa-long-arrow-left"></i>';
+        addColumnBefore.innerHTML = '<i class="octicon octicon-left"></i>';
         addColumnBefore.onclick = this.addColumn.bind(this, true);
         this._toolbar.appendChild(addColumnBefore);
 
         var addColumnAfter = this._doc.createElement('button');
         addColumnAfter.title = 'Add column after';
-        addColumnAfter.innerHTML = '<i class="fa fa-long-arrow-right"></i>';
+        addColumnAfter.innerHTML = '<i class="octicon octicon-right"></i>';
         addColumnAfter.onclick = this.addColumn.bind(this, false);
         this._toolbar.appendChild(addColumnAfter);
 
         var remColumn = this._doc.createElement('button');
         remColumn.title = 'Remove column';
-        remColumn.innerHTML = '<i class="fa fa-close"></i>';
+        remColumn.innerHTML = '<i class="octicon octicon-x"></i>';
         remColumn.onclick = this.removeColumn.bind(this);
         this._toolbar.appendChild(remColumn);
 
         var remTable = this._doc.createElement('button');
         remTable.title = 'Remove table';
-        remTable.innerHTML = '<i class="fa fa-trash-o"></i>';
+        remTable.innerHTML = '<i class="octicon octicon-trashcan"></i>';
         remTable.onclick = this.removeTable.bind(this);
         this._toolbar.appendChild(remTable);
 
@@ -606,4 +606,4 @@ MediumEditorTable = MediumEditor.extensions.form.extend({
 });
 
   return MediumEditorTable;
-}()));
+}(require('medium-editor'))));
